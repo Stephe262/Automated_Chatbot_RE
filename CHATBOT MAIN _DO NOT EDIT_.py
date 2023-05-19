@@ -40,13 +40,10 @@ GMAIL_PASSWORD = os.getenv('GMAIL_PASSWORD')
 # Set up Twilio Client
 client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
 
-loop_start = 7
-loop_end = 8
-
 def send_sms(to_number, sms_body):
     # Create an instance of the Twilio client
     client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
-    from_number = '+17193949966'
+    from_number = 'TWILIO NUMBER'
     # Send the SMS message
     text = client.messages.create(
         to=to_number,
@@ -58,21 +55,21 @@ def send_email(to_email, email_subject, email_body):
     # Create an instance of the email client
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.starttls()
-    server.login("nolan@blacksprucerealty.com", GMAIL_PASSWORD)
+    server.login("YOUR EMAIL", GMAIL_PASSWORD)
 
     # Add HTML signature to the email body
-    html_signature = '<div style="margin: 0 !important; padding: 0 !important; width: 100% !important;"><div style="font-family: Arial, sens-serif; font-size: 16px; line-height: 1.3; color: #000000;" class="template-template3 is-flipped-true font-family-arial contact-icon-family-outline font-size font-family text-color"><table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse: collapse !important; font-size: inherit;"><tr><td style="color: #000000; font-weight: 700; font-family: Arial, sens-serif; font-size: 17px;" class="name title-color">Nolan Stephenson</td></tr><tr><td style="padding-top: 4px;"><table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse: collapse !important; font-size: inherit;"><tr><td style="font-family: Arial, sens-serif; font-size: 16px;" class="job-title">Owner/Broker |</td><td style="padding-left: 8px; font-family: Arial, sens-serif; font-size: 16px;" class="company">Black Spruce Group</td></tr></table></td></tr><tr><td style="padding-top: 10px;"><table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse: collapse !important; font-size: inherit;"><tr><td><table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse: collapse !important; font-size: inherit;"><tr><td style="line-height: 0px; padding: 0 5px 0 0;"><img style="border: 0px; height: 24px; line-height: 100%; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; width: 24px;" src="https://woodpecker.co/cdn-cgi/imagedelivery/dbHg18raJkJAbxhrT08asw/f669c002-0bd2-462c-69a1-d6129089a700/public" alt width="24" height="24" /></td><td><a href="mailto:nolan@blacksprucerealty.com" style="color: #000000 !important; text-decoration: underline !important; font-size: 16px !important; font-family: Arial, sens-serif !important; font-weight: inherit !important; line-height: inherit !important;" class="email">nolan@blacksprucerealty.com</a></td></tr></table></td></tr><tr><td style="padding-top: 6px;"><table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse: collapse !important; font-size: inherit;"><tr><td style="line-height: 0px; padding: 0 5px 0 0;"><img style="border: 0px; height: 24px; line-height: 100%; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; width: 24px;" src="https://woodpecker.co/cdn-cgi/imagedelivery/dbHg18raJkJAbxhrT08asw/bef2635b-c63f-46f3-c865-525638aa7d00/public" alt width="24" height="24" /></td><td><a href="https://www.blacksprucegroup.com" style="color: #000000 !important; text-decoration: underline !important; font-size: 16px !important; font-family: Arial, sens-serif !important; font-weight: inherit !important; line-height: inherit !important;" class="link-color website">blacksprucegroup.com</a></td></tr></table></td></tr><tr><td style="padding-top: 6px;"><table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse: collapse !important; font-size: inherit;"><tr><td style="line-height: 0px; padding: 0 4px 0 0;"><img style="border: 0px; height: 24px; line-height: 100%; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; width: 24px;" src="https://woodpecker.co/cdn-cgi/imagedelivery/dbHg18raJkJAbxhrT08asw/f0ec7c3e-5957-4157-e09c-22c60ead8300/public" alt width="24" height="24" /></td><td style="font-family: Arial, sens-serif; font-size: 16px;" class="phone">719-334-0783</td></tr></table></td></tr></table></td></tr><tr><td style="padding-top: 17px;"><table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse: collapse !important; font-size: inherit;"><tr class="social-icon-family-color"><td style="font-size: 0px; line-height: 0px; padding-right: 10px;"><a href="https://www.facebook.com/BlackSpruceGroupRealEstate" style="color: inherit !important; text-decoration: none !important; font-size: inherit !important; font-family: inherit !important; font-weight: inherit !important; line-height: inherit !important;" aria-label="Facebook link" class="facebook"><img style="border: 0px; height: 24px; line-height: 100%; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; width: 24px;" src="https://woodpecker.co/cdn-cgi/imagedelivery/dbHg18raJkJAbxhrT08asw/20068542-1edd-4841-1aa6-78fb537c6c00/public" alt width="24" height="24" class="icon-size" /></a></td><td style="font-size: 0px; line-height: 0px; padding-right: 10px;"><a href="https://www.instagram.com/nolanstephenson_bsg/" style="color: inherit !important; text-decoration: none !important; font-size: inherit !important; font-family: inherit !important; font-weight: inherit !important; line-height: inherit !important;" aria-label="Instagram link" class="instagram"><img style="border: 0px; height: 24px; line-height: 100%; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; width: 24px;" src="https://woodpecker.co/cdn-cgi/imagedelivery/dbHg18raJkJAbxhrT08asw/e08c3c85-eee3-4015-ce04-e0554a00e700/public" alt width="24" height="24" class="icon-size" /></a></td><td style="font-size: 0px; line-height: 0px; padding-right: 10px;"><a href="https://www.youtube.com/channel/UCACFWLhuEQmtZ65GFdd7tsw" style="color: inherit !important; text-decoration: none !important; font-size: inherit !important; font-family: inherit !important; font-weight: inherit !important; line-height: inherit !important;" aria-label="Youtube link" class="youtube"><img style="border: 0px; height: 24px; line-height: 100%; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; width: 24px;" src="https://woodpecker.co/cdn-cgi/imagedelivery/dbHg18raJkJAbxhrT08asw/2e8253e9-1e3c-4d71-e56d-880e1df34500/public" alt width="24" height="24" class="icon-size" /></a></td></tr></table></td></tr><tr><td style="font-size: 0px; line-height: 0px; padding: 16px 0 0 0;"><img style="border: 0px; height: 110px; line-height: 100%; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; width: 110px;" src="https://i.imgur.com/5TiKgoT.png" alt="Email sender photo" width="110" height="110" class="photo photo-size" /></td></tr><tr><td style="padding-top: 10px;"><a href="https://calendly.com/consult-bsg" style="color: #0000FF !important; text-decoration: underline !important; font-size: 20px !important; font-family: Arial, sens-serif !important; font-weight: inherit !important; line-height: inherit !important;" class="link-color website">Let&#39;s Meet! The Coffee is on me! ☕️</a></td></tr></table></td></tr>'
+    html_signature = 'HTML EMAIL SIGNATURE'
 
     # Create the email message
     email_body += html_signature
     message = MIMEText(email_body, 'html')
     message['Subject'] = email_subject
-    message['From'] = 'nolan@blacksprucerealty.com'
+    message['From'] = 'YOUR EMAIL'
     message['To'] = to_email
-    message['Bcc'] = 'nolan@blacksprucerealty.com'
+    message['Bcc'] = 'YOUR EMAIL'
 
     # Send the email message
-    server.sendmail('nolan@blacksprucerealty.com', to_email, message.as_string())
+    server.sendmail('YOUR EMAIL', to_email, message.as_string())
     server.quit()
 
 # Function that will send me a SMS and Email if a Lead is unresponsive
@@ -81,7 +78,7 @@ def alert_me(fname, lname, email, to_number,
              area_cri, sqft_cri, budget_cri):
     sms_body = f'*{fname} {lname}* was UNRESPONSIVE\n' \
                f'Phone: {to_number}'
-    send_sms(+17193340783, sms_body)
+    send_sms(+'YOUR PHONE NUMBER', sms_body)
 
 # This is the initial start of the convo after lead signs up on site
 def initial_convo(fname, lname, email, to_number,
@@ -89,7 +86,7 @@ def initial_convo(fname, lname, email, to_number,
                  area_cri, sqft_cri, budget_cri, row_data, i, num_rows):
 
     print(f'sending new message to {fname}')
-    send_sms('+17193340783', f'NEW LEAD and below is their info: \n\n'
+    send_sms('YOUR PHONE NUMBER GOES HERE', f'NEW LEAD and below is their info: \n\n'
                              f'*{fname} {lname}*\n'
                              f'Phone: {to_number}\n'
                              f'Email: {email}\n'
@@ -103,10 +100,7 @@ def initial_convo(fname, lname, email, to_number,
                              f'That is all, love, yourself!\n'
                              f'-Nolan ;)')
     time.sleep(10)
-    send_sms(to_number, f"Hi {fname}, my name is Dana and I am the Customer Success Manager with Black Spruce Group. \n\n"
-                        f"First off, we would like to say thank you for signing up on our website 🙂 In order to serve "
-                        f"you better I'd like to ask you a few questions in regards to your home search.\n\n"
-                        f"Firstly, what has you in the market looking for a home?")
+    send_sms(to_number, f"FILL THIS WITH AN INITIAL TEXT MESSAGE PERHAPS WELCOMING THE LEAD TO YOUR SITE ETC.")
     start_time = time.time()
     while True:
         messages = client.messages.list(limit=50)
@@ -123,9 +117,7 @@ def initial_convo(fname, lname, email, to_number,
                     exit()
                 else:
                     if time.time() == start_time + 20:
-                        send_sms(to_number, f"We understand that you may be early in the process of buying a home {fname}, "
-                                            f"and we want to be able to help you find the perfect place! \n\n"
-                                            f"I'll be on standby should you have any questions!")
+                        send_sms(to_number, f"MESSAGE HERE AFTER 20 SECONDS of NO RESPONSE FROM THE LEAD")
                     else:
                         pass
 
@@ -143,9 +135,7 @@ def initial_convo(fname, lname, email, to_number,
                     exit()
                 else:
                     if time.time() == start_time + 80:
-                        send_sms(to_number, f"Almost forgot! Nolan is doing a really awesome deal right now with buyers "
-                                            f"where, when you work with him as your Realtor, he will give you $2,500 back as "
-                                            f"a rebate and as a thanks!")
+                        send_sms(to_number, f"MESSAGE HERE AFTER 80 SECONDS of NO RESPONSE FROM THE LEAD")
                     else:
                         pass
 
@@ -162,25 +152,9 @@ def initial_convo(fname, lname, email, to_number,
                     exit()
         else:
             if time.time() > start_time + 200:
-                send_sms(to_number, f"{fname}, I am well versed with our searching tool and am more than"
-                                    f" happy to set you up with a search that will automatically send you listings daily, biweekly, or really"
-                                    f"whatever works best for you! Let me know how we can better serve you in the home buying journey.\n\n "
-                                    f"-Dana")
+                send_sms(to_number, f"MESSAGE HERE AFTER 200 SECONDS of NO RESPONSE FROM THE LEAD")
                 all_leads_sheet.update_cell(num_rows, 10, 'C')
-                send_email(email, f"{fname}'s Home Search", f'Hello {fname},</p><p>'
-                                  f'</p><p>'
-                                  f'Thank you for filling out the contact form on my website in order to gain access to the search tool.</p><p>'
-                                  f'</p><p>'
-                                  f'My name is Nolan Stephenson and I am the owner of Black Spruce Group and would just like to introduce myself and make sure you are aware '
-                                  f'that I am available to assist you and answer any questions or concerns you may have as it relates to the '
-                                  f'home buying process.</p><p>'
-                                  f'</p><p>'
-                                  f'Here is my contact info:</p><p>'
-                                  f'Cell -- (719) 334-0783</p><p>'
-                                  f'Email -- Nolan@BlackSpruceRealty.com</p><p>'
-                                  f'</p><p>'
-                                  f'I am free to chat, so feel free to give me a shout!</p><p>'
-                                  f'-Nolan</p><p>')
+                send_email(email, f"AN EMAIL MESSAGE YOU WOULD WANT TO SEND OUT TO YOUR NEW LEAD IF THEY HAVE NOT RESPONDED TO THE AUTOMATED TEXT MESSAGES')
                 alert_me(fname, lname, email, to_number,
                          initial_search, tag, bed_cri, bath_cri,
                          area_cri, sqft_cri, budget_cri)
@@ -189,8 +163,8 @@ def initial_convo(fname, lname, email, to_number,
                 pass
 
 def dialogflow_response(to_number, response):
-    DIALOGFLOW_PROJECT_ID = 'rechatbot4you'
-    SESSION_ID = 'me'
+    DIALOGFLOW_PROJECT_ID = 'NAME OF YOUR PROJECT ID W/IN DIALOGFLOW'
+    SESSION_ID = 'SESSION_ID'
 
 
 
